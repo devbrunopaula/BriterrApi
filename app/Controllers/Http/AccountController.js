@@ -45,13 +45,13 @@ class AccountController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store({ request, response }) {
-    const { firstName, lastName } = request.post();
-    const customer = new Customer({
-      account_id: uuid(),
-      firstName: firstName,
-      lastName: lastName
-    });
+  async store({ params, request, response }) {
+    const { firstName, lastName } = request.body;
+    const customer = new Customer();
+
+    customer.account_id = uuid();
+    customer.firstName = firstName;
+    customer.lastName = lastName;
 
     await customer.save();
 
