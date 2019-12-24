@@ -6,12 +6,12 @@ const Schema = use("Schema");
 class OrdersSchema extends Schema {
   up() {
     this.create("orders", table => {
-      table.increments();
+      // table.increments();
       table
         .string("order_id")
         .unsigned()
         .notNullable()
-        .references("id")
+        .references("account_id")
         .inTable("accounts")
         .onDelete("CASCADE");
       table.string("group");
