@@ -6,9 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "node ace test",
-    "deploy": "npm install &&  node server.js",
-    "build": "adonis serve"
+    "test": "node ace test"
   },
   "keywords": [
     "adonisjs",
