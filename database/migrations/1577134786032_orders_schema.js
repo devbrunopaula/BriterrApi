@@ -8,7 +8,7 @@ class OrdersSchema extends Schema {
     this.create("orders", table => {
       table.increments();
       table
-        .integer("order_id")
+        .string("order_id")
         .unsigned()
         .notNullable()
         .references("id")

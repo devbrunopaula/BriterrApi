@@ -7,7 +7,7 @@ class AccountSchema extends Schema {
   up() {
     this.create("accounts", table => {
       table.increments();
-      table.integer("account_id");
+      table.string("account_id");
       table.string("firstName");
       table.string("lastName");
       table.timestamps();
