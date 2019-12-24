@@ -8,7 +8,7 @@
     "start": "node server.js",
     "test": "node ace test",
     "deploy": "npm install &&  node server.js",
-    "build": "node server.js"
+    "build": "adonis serve"
   },
   "keywords": [
     "adonisjs",
