@@ -22,8 +22,6 @@ class AccountController {
    * @param {View} ctx.view
    */
   async index({ request, response, view }) {
-    const iid = uuid();
-    console.log(iid);
     const customers = await Customer.all();
     return customers;
   }
@@ -49,9 +47,11 @@ class AccountController {
    */
   async store({ request, response }) {
     const { firstName, lastName } = request.post();
-    const customer = new Customer();
-    (customer.account_id = uuid()), (customer.firstName = firstName);
-    customer.lastName = lastName;
+    const customer = new Customer({
+      account_id: uuid(),
+      firstName: firstName,
+      lastName: lastName
+    });
 
     await customer.save();
 
