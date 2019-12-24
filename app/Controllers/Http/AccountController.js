@@ -71,7 +71,7 @@ class AccountController {
    * @param {View} ctx.view
    */
   async show({ params, request, response, view }) {
-    const customer = Customer.findOrFail(params.id);
+    const customer = Customer.findOrFail(params.account_id);
 
     if (!customer) {
       response.json({
