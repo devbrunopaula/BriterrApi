@@ -18,4 +18,6 @@ const Route = use("Route");
 
 const AccountController = require("../app/Controllers/Http/AccountController");
 
+Route.get("/", () => "Hello Briterr API");
+
 Route.resource("/accounts", "AccountController");
