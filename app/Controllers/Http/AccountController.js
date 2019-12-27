@@ -53,7 +53,7 @@ class AccountController {
     customer.firstName = firstName;
     customer.lastName = lastName;
 
-    await customer.save;
+    await customer.save();
 
     response.status(201).json({
       message: "Sucessfully created a new Customer",
