@@ -47,13 +47,13 @@ class AccountController {
    */
   async store({ params, request, response }) {
     const { firstName, lastName } = request.body;
-    const customer = new Customer();
+    const customer = await new Customer();
 
     customer.account_id = uuid();
     customer.firstName = firstName;
     customer.lastName = lastName;
 
-    await customer.save();
+    await customer.save;
 
     response.status(201).json({
       message: "Sucessfully created a new Customer",
@@ -71,14 +71,15 @@ class AccountController {
    * @param {View} ctx.view
    */
   async show({ params, request, response, view }) {
-    const customer = Customer.find(params.account_id);
+    const id = params.id;
 
+    const customer = await Customer.find(id);
     if (!customer) {
-      response.json({
-        data: "Customer not Found"
-      });
+      throw error;
     } else {
-      return customer;
+      response.status(200).json({
+        customer
+      });
     }
   }
 
